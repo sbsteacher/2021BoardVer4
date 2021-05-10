@@ -9,9 +9,9 @@
 <body>
 	<div>
 		<div>
-			<form>
+			<form action="login" method="post">
 				<div><input type="text" name="uid" placeholder="아이디"></div>
-				<div><input type="password" name="upw" placeholder="비밀번호"></div>
+				<div><input type="text" name="upw" placeholder="비밀번호"></div>
 				<div>
 					<input type="submit" value="Login">
 				</div>
