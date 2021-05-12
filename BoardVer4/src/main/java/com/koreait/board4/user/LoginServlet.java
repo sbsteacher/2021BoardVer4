@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession hs = request.getSession();
 		UserVO loginUser = (UserVO) hs.getAttribute("loginUser");
-		if(loginUser != null) {
+		if(loginUser != null) { //로그인 상태
 			response.sendRedirect("/board/list");
 			return;
 		}

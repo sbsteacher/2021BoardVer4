@@ -29,10 +29,13 @@ public class WriteServlet extends HttpServlet {
 		//제목, 내용, 글쓴이 pk값을 BoardVO 객체에 담아주세요~		
 		String title = request.getParameter("title");
 		String ctnt = request.getParameter("ctnt");
-		
+		/*
 		HttpSession hs = request.getSession();
 		UserVO loginUser = (UserVO)hs.getAttribute("loginUser");		
 		int iuser = loginUser.getIuser();
+		*/
+		
+		int iuser = MyUtils.getLoginUserPk(request);
 		
 		BoardVO param = new BoardVO();
 		param.setIuser(iuser);

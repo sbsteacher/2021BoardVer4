@@ -1,6 +1,7 @@
 package com.koreait.board4.board;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -20,17 +21,15 @@ public class ListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession hs = request.getSession();
 		UserVO loginUser = (UserVO) hs.getAttribute("loginUser");
-		//로그인 안되어 있으면 로그인화면으로 이동
 		
-		if(loginUser == null) {
+		if(loginUser == null) { //로그아웃 상태면 로그인 페이지로 이동
 			response.sendRedirect("/user/login");
 			return;
 		}
 		
 		List<BoardVO> list = BoardDAO.selBoardList();
 		request.setAttribute("list", list);
-		
-		//로그인 했으면 board/list.jsp파일 응답
+				
 		MyUtils.openJSP("board/list", request, response);
 	}
 	/*
